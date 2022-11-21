@@ -1,0 +1,158 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+li:hover {
+    cursor: pointer;
+    color: #000;
+    text-shadow: 2px 0 darkorange, -2px 0 darkorange, 0 2px darkorange, 0 -2px darkorange,
+    1px 1px darkorange, -1px -1px darkorange, 1px -1px darkorange, -1px 1px darkorange;
+}
+
+.bookstorebtn a {
+    color:black;
+}
+
+.bookstorebtn {
+    cursor: pointer;
+    font-weight: 600;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+    1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
+
+.logo-header a {
+    color: darkorange;
+}
+
+.wrapper {
+    margin: auto;
+    background-color:darkslategray;
+    width: 100%;
+}
+.layout {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color:tan;
+    margin: 5vh 5vh 5vh 5vh;
+    width: 1300px;
+    height: 2000px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
+    -moz-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
+    box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
+}
+
+.logo-header {
+    position:absolute;
+    text-align: center;
+    margin-top: 0.6rem;
+    margin-left: 2rem;
+    color:darkorange;
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+.logo-header:hover {
+    cursor: pointer;
+    text-shadow: black 0.5mm 0.5mm;
+    color:darkorange;
+}
+
+.chart-icon {
+    background-image: url(../../assets/icons/shopchart-activ.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-left: 90%;
+    margin-top: 2rem;
+}
+
+.chart-icon:hover {
+    cursor: pointer;
+    box-shadow: darkorange;
+}
+
+
+.navbar {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 15vh;
+    background-color: white;
+    color:darkorange;
+    z-index: 3;
+}
+
+.navlist {
+    position: absolute;
+    display: flex;
+    margin-top: 4rem;
+    margin-left: 27%;
+    gap: 20vh;
+}
+
+.bookgrid {
+padding-top: 12rem;
+row-gap: 10px;
+width: 1160px;
+display: grid;
+grid-template-columns: auto auto auto;
+margin: auto;
+justify-content: space-evenly;
+}
+
+.bookone {
+    color: black;
+    width: 500px;
+    height: 800px;
+}
+
+.firstbook {
+    width: 400px;
+    height: 800px;
+    border: black solid 1mm;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
+    -moz-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
+    box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
+    text-align: center;
+    background-color:darkorange;
+    background-image: url(../../assets/images/thegoodparts.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.showmorebtn {
+    position: absolute;
+    margin-top: 520px;
+    margin-left: -45px;
+}
+
+.addtobagbtn {
+    position: absolute;
+    margin-top: 570px;
+    margin-left: -150px;
+    background-color: gold;
+    border-radius: 5px;
+    border: solid gold;
+    width: 300px;
+    height: 30px;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
