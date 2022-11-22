@@ -125,15 +125,70 @@ let booktitles = `[
       }
     ]`
 
+
 const books  = document.createElement("div")
 layout.append(books)
 books.className = "bookgrid"
 
 const firstbook = document.createElement("div")
 books.append(firstbook)
-firstbook.className = "firstbook"
-firstbook.innerHTML =  JSON.parse(booktitles)[1].author + "<h3>" +
+firstbook.className = "book b1"
+firstbook.innerHTML =  JSON.parse(booktitles)[0].author + "<h3>" +
+JSON.parse(booktitles)[0].title + "<h3>" + "<br>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[0].price + "</strong>"
+
+const book2 = document.createElement("div")
+books.append(book2)
+book2.className = "book b2"
+book2.innerHTML =  JSON.parse(booktitles)[1].author + "<h3>" +
 JSON.parse(booktitles)[1].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[1].price + "</strong>"
+
+const book3 = document.createElement("div")
+books.append(book3)
+book3.className = "book b3"
+book3.innerHTML =  JSON.parse(booktitles)[2].author + "<h3>" +
+JSON.parse(booktitles)[2].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[2].price + "</strong>"
+
+const book4 = document.createElement("div")
+books.append(book4)
+book4.className = "book b4"
+book4.innerHTML =  JSON.parse(booktitles)[3].author + "<h3>" +
+JSON.parse(booktitles)[3].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[3].price + "</strong>"
+
+const book5 = document.createElement("div")
+books.append(book5)
+book5.className = "book b5"
+book5.innerHTML =  JSON.parse(booktitles)[4].author + "<h3>" +
+JSON.parse(booktitles)[4].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[4].price + "</strong>"
+
+const book6 = document.createElement("div")
+books.append(book6)
+book6.className = "book b6"
+book6.innerHTML =  JSON.parse(booktitles)[5].author + "<h3>" +
+JSON.parse(booktitles)[5].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[5].price + "</strong>"
+
+const book7 = document.createElement("div")
+books.append(book7)
+book7.className = "book b7"
+book7.innerHTML =  JSON.parse(booktitles)[6].author + "<h3>" +
+JSON.parse(booktitles)[6].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[6].price + "</strong>"
+
+const book8 = document.createElement("div")
+books.append(book8)
+book8.className = "book b8"
+book8.innerHTML =  JSON.parse(booktitles)[7].author + "<h3>" +
+JSON.parse(booktitles)[7].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[7].price + "</strong>"
+
+const book9 = document.createElement("div")
+books.append(book9)
+book9.className = "book b9"
+book9.innerHTML =  JSON.parse(booktitles)[8].author + "<h3>" +
+JSON.parse(booktitles)[8].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[8].price + "</strong>"
+
+const book10 = document.createElement("div")
+books.append(book10)
+book10.className = "book b10"
+book10.innerHTML =  JSON.parse(booktitles)[9].author + "<h3>" +
+JSON.parse(booktitles)[9].title + "<h3>" + "<strong>" + "Price: $" + JSON.parse(booktitles)[9].price + "</strong>"
 
 //show more btn
 const showmorebtn = document.createElement("a")

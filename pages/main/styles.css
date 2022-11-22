@@ -49,7 +49,7 @@ li:hover {
     background-color:tan;
     margin: 5vh 5vh 5vh 5vh;
     width: 1300px;
-    height: 2000px;
+    height: 3600px;
     border-radius: 10px;
     -webkit-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
     -moz-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
@@ -109,7 +109,8 @@ li:hover {
 
 .bookgrid {
 padding-top: 12rem;
-row-gap: 10px;
+gap: 1rem;
+row-gap: 2rem;
 width: 1160px;
 display: grid;
 grid-template-columns: auto auto auto;
@@ -123,7 +124,7 @@ justify-content: space-evenly;
     height: 800px;
 }
 
-.firstbook {
+.book {
     width: 400px;
     height: 800px;
     border: black solid 1mm;
@@ -133,7 +134,66 @@ justify-content: space-evenly;
     box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
     text-align: center;
     background-color:darkorange;
-    background-image: url(../../assets/images/thegoodparts.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b1 {
+    background-image: url(../../assets/images/book1.jpg);
+    background-repeat: no-repeat;
+    background: position 0;
+}
+
+.b2 {
+    background-image: url(../../assets/images/book2.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b3 {
+    background-image: url(../../assets/images/book3.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b4 {
+    background-image: url(../../assets/images/book4.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b5 {
+    background-image: url(../../assets/images/book5.webp);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b6 {
+    background-image: url(../../assets/images/book6.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b7 {
+    background-image: url(../../assets/images/book7.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b8 {
+    background-image: url(../../assets/images/book8.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b9 {
+    background-image: url(../../assets/images/book9.webp);
+    background-repeat: no-repeat;
+    background-position: 5px 150px;
+}
+
+.b10 {
+    background-image: url(../../assets/images/book10.jpg);
     background-repeat: no-repeat;
     background-position: 5px 150px;
 }
