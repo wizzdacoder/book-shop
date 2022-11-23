@@ -46,7 +46,7 @@ li:hover {
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color:tan;
+    background-color:white;
     margin: 5vh 5vh 5vh 5vh;
     width: 1300px;
     height: 3600px;
@@ -83,7 +83,7 @@ li:hover {
 
 .chart-icon:hover {
     cursor: pointer;
-    box-shadow: darkorange;
+    opacity: 0.7;
 }
 
 
@@ -118,12 +118,6 @@ margin: auto;
 justify-content: space-evenly;
 }
 
-.bookone {
-    color: black;
-    width: 500px;
-    height: 800px;
-}
-
 .book {
     width: 400px;
     height: 800px;
@@ -133,67 +127,7 @@ justify-content: space-evenly;
     -moz-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
     box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
     text-align: center;
-    background-color:darkorange;
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b1 {
-    background-image: url(../../assets/images/book1.jpg);
-    background-repeat: no-repeat;
-    background: position 0;
-}
-
-.b2 {
-    background-image: url(../../assets/images/book2.jpg);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b3 {
-    background-image: url(../../assets/images/book3.jpg);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b4 {
-    background-image: url(../../assets/images/book4.jpg);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b5 {
-    background-image: url(../../assets/images/book5.webp);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b6 {
-    background-image: url(../../assets/images/book6.jpg);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b7 {
-    background-image: url(../../assets/images/book7.jpg);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b8 {
-    background-image: url(../../assets/images/book8.jpg);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b9 {
-    background-image: url(../../assets/images/book9.webp);
-    background-repeat: no-repeat;
-    background-position: 5px 150px;
-}
-
-.b10 {
-    background-image: url(../../assets/images/book10.jpg);
+    background-color:white;
     background-repeat: no-repeat;
     background-position: 5px 150px;
 }
@@ -205,14 +139,16 @@ justify-content: space-evenly;
 }
 
 .addtobagbtn {
-    position: absolute;
-    margin-top: 570px;
-    margin-left: -150px;
+    outline: 0;
+    padding: 12px;
     background-color: gold;
     border-radius: 5px;
     border: solid gold;
-    width: 300px;
-    height: 30px;
+    font-size: 18px;
     font-weight: 700;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+.addtobagbtn:hover {
+    opacity: 0.7;
 }
