@@ -31,9 +31,7 @@ ul.className = "navlist"
 const chart = document.createElement("div")
 header.append(chart)
 chart.className = "chart-icon"
-const icon = document.createElement("img")
-header.append(icon)
-chart.innerHTML = "<a href='#' id='shopcart'></a>"
+chart.id = "charticon"
 
 const li1 = document.createElement("li")
 ul.append(li1)
@@ -51,86 +49,27 @@ li3.className = "my-collection"
 li3.innerHTML = 'My Collection'
 
 // bookgrid
-const booktitles = [
-    {
-      "author": "Douglas Crockford",
-      "imageLink": "../../assets/images/book1.jpg",
-      "title": "JavaScript: The Good Parts: The Good Parts",
-      "price": 30,
-      "description": "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must"
-    },
-      {
-        "author": "David Herman",
-        "imageLink": "../../assets/images/book2.jpg",
-        "title": "Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript",
-        "price": 22,
-        "description": "Effective JavaScript is organized around 68 proven approaches for writing better JavaScript, backed by concrete examples. You’ll learn how to choose the right programming style for each project, manage unanticipated problems, and work more successfully with every facet of JavaScript programming from data structures to concurrency"
-      },
-      {
-        "author": "David Flanagan",
-        "imageLink": "../../assets/images/book3.jpg",
-        "title": "JavaScript: The Definitive Guide",
-        "price": 40,
-        "description": "This Fifth Edition is completely revised and expanded to cover JavaScript as it is used in today's Web 2.0 applications. This book is both an example-driven programmer's guide and a keep-on-your-desk reference, with new chapters that explain everything you need to know to get the most out of JavaScript"
-      },
-      {
-        "author": " Eric Elliott",
-        "imageLink": "../../assets/images/book4.jpg",
-        "title": "Programming JavaScript Applications",
-        "price": 19,
-        "description": "Take advantage of JavaScript’s power to build robust web-scale or enterprise applications that are easy to extend and maintain. By applying the design patterns outlined in this practical book, experienced JavaScript developers will learn how to write flexible and resilient code that’s easier—yes, easier—to work with as your code base grows."
-      },
-      {
-        "author": "Addy Osmani",
-        "imageLink": "../../assets/images/book5.webp",
-        "title": "Learning JavaScript Design Patterns",
-        "price": 32,
-        "description": "With Learning JavaScript Design Patterns, you’ll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you."
-      },
-      {
-        "author": "Boris Cherny",
-        "imageLink": "../../assets/images/book6.jpg",
-        "title": "Programming TypeScript",
-        "price": 28,
-        "description": "Any programmer working with a dynamically typed language will tell you how hard it is to scale to more lines of code and more engineers. That’s why Facebook, Google, and Microsoft invented gradual static type layers for their dynamically typed JavaScript and Python code. This practical book shows you how one such type layer, TypeScript, is unique among them: it makes programming fun with its powerful static type system."
-      },
-      {
-        "author": "Alex Banks, Eve Porcello",
-        "imageLink": "../../assets/images/book7.jpg",
-        "title": "Learning React, 2nd Edition",
-        "price": 25,
-        "description": "If you want to learn how to build efficient React applications, this is your book. Ideal for web developers and software engineers who understand how JavaScript, CSS, and HTML work in the browser, this updated edition provides best practices and patterns for writing modern React code. No prior knowledge of React or functional JavaScript is necessary."
-      },
-      {
-        "author": "Bradley Meck Alex Young and Mike Cantelon",
-        "imageLink": "../../assets/images/book8.jpg",
-        "title": "Node.js in Action",
-        "price": 38,
-        "description": "Node.js in Action, Second Edition is a thoroughly revised book based on the best-selling first edition. It starts at square one and guides you through all the features, techniques, and concepts you'll need to build production-quality Node applications."
-      },
-      {
-        "author": "Kyle Simpson",
-        "imageLink": "../../assets/images/book9.webp",
-        "title": "You Don't Know JS Yet: Get Started",
-        "price": 26,
-        "description": "It seems like there's never been as much widespread desire before for a better way to deeply learn the fundamentals of JavaScript. But with a million blogs, books, and videos out there, just where do you START? Look no further!"
-      },
-      {
-        "author": "John Resig and Bear Bibeault",
-        "imageLink": "../../assets/images/book10.jpg",
-        "title": "Secrets of the JavaScript Ninja",
-        "price": 33,
-        "description": "Secrets of the Javascript Ninja takes you on a journey towards mastering modern JavaScript development in three phases: design, construction, and maintenance. Written for JavaScript developers with intermediate-level skills, this book will give you the knowledge you need to create a cross-browser JavaScript library from the ground up."
-      }
-    ]
 
-// book grid
 const books  = document.createElement("div")
 layout.append(books)
 books.className = "bookgrid"
 books.id = "book-grid"
 
-const shopcontent = document.getElementById("book-grid")
+const shopcontent = document.getElementById("book-grid");
+
+//shopping cart
+const modalcontainer = document.createElement("div");
+modalcontainer.className = "modal-container";
+modalcontainer.id = "modalcontainer";
+layout.append(modalcontainer);
+
+const charticon = document.getElementById("charticon");
+const showmorecontainer = document.createElement("div");
+showmorecontainer.className = "show-more-container";
+showmorecontainer.id = "showmorecontainer";
+layout.append(showmorecontainer)
+
+let shopcart = []
 
 booktitles.forEach((books) => {
   let content = document.createElement("div");
@@ -139,43 +78,96 @@ booktitles.forEach((books) => {
   <p>${books.author}</p>
   <h3>${books.title}</h3>
   <img src="${books.imageLink}">
-  <p>Price: ${books.price}</p>
+  <p><strong>Price: $${books.price}</strong></p>
   `;
   shopcontent.append(content);
 
-  let showmore = document.createElement("a")
-  showmore.innerText = "Show More"
-  showmore.className = "showMore"
+  //showmorebtn
+  let showmorebtn = document.createElement("a")
+  showmorebtn.innerHTML = "<p>Show More...</p><br>"
+  showmorebtn.className = "showmore-btn"
+  showmorebtn.id ="showmorebtn"
+  content.append(showmorebtn)
 
-  content.append(showmore)
+  showmorebtn.addEventListener("click", () => {
+    const showmoreHeader = document.createElement("div");
+    showmoreHeader.className = "show-more-header";
+    showmoreHeader.innerHTML = `
+    <h2>${books.title}</h2>
+    <h3 class="description-title">Description:</h3>
+    <p>${books.description}</p>
+    `;
+    showmorecontainer.append(showmoreHeader);
 
+    const showxbutton = document.createElement("h2");
+    showxbutton.innerText = "x";
+    showxbutton.className = "showxbutton";
+    showmoreHeader.append(showxbutton);
+
+    showxbutton.addEventListener("click", () => {
+    showmorecontainer.style.display = "none";
+    });
+    });
+
+ //add to cart btn
   let addtobag = document.createElement("button")
   addtobag.innerText = "Add to Bag"
   addtobag.className = "addtobagbtn"
-
   content.append(addtobag)
 
+  addtobag.addEventListener("click", () =>{
+    shopcart.push({
+      img: books.imageLink,
+      title: books.title,
+      author: books.author,
+      price: books.price
+    });
+  });
+});
 
+//shopping cart
+charticon.addEventListener("click", () => {
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modal-header";
+    modalHeader.innerHTML = `
+    <h1 class="modal-header-title">Shopping Cart</h1>
+    `;
+    modalcontainer.append(modalHeader)
 
+    const modalxbutton = document.createElement("h2");
+    modalxbutton.innerText = "x";
+    modalxbutton.className = "modalxbutton"
+    modalHeader.append(modalxbutton)
+
+    modalxbutton.addEventListener("click", () => {
+    modalcontainer.style.display = "none"
+    });
+
+    shopcart.forEach((books) => {
+      let shopcartcontent = document.createElement("div");
+      shopcartcontent.className = "modal-content";
+      shopcartcontent.innerHTML = `
+      <img src="${books.imageLink}">
+      <h3>${books.title}</h3>
+      <p>${books.author}</p>
+      <p><strong>Price: $${books.price}</strong></p>
+      `;
+    modalcontainer.append(shopcartcontent)
+    });
+
+    const total = shopcart.reduce((acc, el) => acc + el.price, 0);
+
+    const totalBuying = document.createElement("div")
+    totalBuying.className = "total-content"
+    totalBuying.innerHTML = `Total to Pay: $${total}`;
+    modalcontainer.append(totalBuying);
 });
 
 
 
 
-// //show more btn
-// const showmorebtn = document.createElement("button")
-// showmorebtn.className = "showmorebtn"
-// showmorebtn.textContent = 'Show More'
 
-// //add to chart btn
-
-// const addtobagbtn = document.createElement("a")
-// addtobagbtn.className = "addtobagbtn"
-// addtobagbtn.innerHTML = "<a href='#' id='shopcart'>" + 'ADD TO BAG' + "</a>"
-
-
-//shopping cart
-//remove book from chart
+//remove book from cart
 
 //summarize personal info
 
