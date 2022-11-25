@@ -90,8 +90,13 @@ booktitles.forEach((books) => {
   content.append(showmorebtn)
 
   showmorebtn.addEventListener("click", () => {
-    const showmoreHeader = document.createElement("div");
     showmorecontainer.innerHTML = "";
+    const showmoreHeader = document.createElement("div");
+    const showxbutton = document.createElement("h2");
+    showxbutton.innerText = "❌";
+    showxbutton.className = "showxbutton";
+    showmorecontainer.style.display = "flex"
+    showmorecontainer.append(showxbutton);
     showmoreHeader.className = "show-more-header";
     showmoreHeader.innerHTML = `
     <h2>${books.title}</h2>
@@ -100,11 +105,7 @@ booktitles.forEach((books) => {
     `;
     showmorecontainer.append(showmoreHeader);
 
-    const showxbutton = document.createElement("h2");
-    showxbutton.innerText = "x";
-    showxbutton.className = "showxbutton";
-    showmorecontainer.style.display = "flex"
-    showmoreHeader.append(showxbutton);
+
 
     showxbutton.addEventListener("click", () => {
     showmorecontainer.style.display = "none";
@@ -128,7 +129,7 @@ booktitles.forEach((books) => {
 });
 
 //shopping cart
-charticon.addEventListener("click", () => {
+const paintCart = () => {
     const modalHeader = document.createElement("div");
     modalcontainer.innerHTML = "";
     modalHeader.className = "modal-header";
@@ -139,7 +140,7 @@ charticon.addEventListener("click", () => {
     modalcontainer.append(modalHeader)
 
     const modalxbutton = document.createElement("h2");
-    modalxbutton.innerText = "x";
+    modalxbutton.innerText = "❌";
     modalxbutton.className = "modalxbutton"
     modalHeader.append(modalxbutton)
 
@@ -157,22 +158,36 @@ charticon.addEventListener("click", () => {
       <p><strong>Price: $${books.price}</strong></p>
       `;
     modalcontainer.append(shopcartcontent)
+
+//remove book from cart
+    let deletebook = document.createElement("span");
+    deletebook.innerText = "❌";
+    deletebook.className = "delete-book";
+    shopcartcontent.append(deletebook);
+
+    deletebook.addEventListener("click", deleteProduct);
     });
 
+// total cart
     const total = shopcart.reduce((acc, el) => acc + el.price, 0);
 
     const totalBuying = document.createElement("div")
     totalBuying.className = "total-content"
     totalBuying.innerHTML = `Total to Pay: $${total}`;
     modalcontainer.append(totalBuying);
+};
+
+charticon.addEventListener("click", paintCart);
+
+const deleteProduct = () => {
+  const foundId = shopcart.find((element) => element.id);
+
+  shopcart = shopcart.filer((shopcartId) => {
+    return shopcartId !== foundId;
+  });
+
+  paintCart();
+};
+
 });
-
-
-
-
-
-//remove book from cart
-
 //summarize personal info
-
-})

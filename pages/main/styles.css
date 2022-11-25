@@ -49,7 +49,7 @@ li:hover {
     background-color:white;
     margin: 5vh 5vh 5vh 5vh;
     width: 1300px;
-    height: 3600px;
+    height: 2700px;
     border-radius: 10px;
     -webkit-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
     -moz-box-shadow: 0 28px 16px -26px rgba(0, 0, 0);
@@ -107,6 +107,8 @@ li:hover {
     gap: 20vh;
 }
 
+/* BOOK GRID */
+
 .bookgrid {
 padding-top: 4rem;
 gap: 1rem;
@@ -135,6 +137,8 @@ justify-content: space-evenly;
     height: 300px;
 }
 
+/*SHOW MORE*/
+
 .showmore-btn {
     font-weight: 700;
     color: brown;
@@ -146,6 +150,12 @@ justify-content: space-evenly;
 .showmore-btn:hover {
     cursor: pointer;
     opacity: 0.6    ;
+}
+
+.showxbutton {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .addtobagbtn {
@@ -184,6 +194,15 @@ justify-content: space-evenly;
     scrollbar-color: none;
 }
 
+.modal-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
 .modal-header {
     display: flex;
     justify-content: space-around;
@@ -193,7 +212,7 @@ justify-content: space-evenly;
 }
 
 .modal-header-title {
-    text-align: center;
+    margin-left: 300px;
 }
 
 .modalcontainer > .modal-content {
@@ -201,13 +220,14 @@ justify-content: space-evenly;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    width: 70%;
     margin: 10px;
 }
 
 .modal-container > div > img {
     height: 150px;
     width: 100px;
+    margin-left: 1rem;
 }
 
 .modalxbutton {
@@ -217,7 +237,7 @@ justify-content: space-evenly;
 .total-content {
     font-size: 25px;
     padding: 20px;
-    text-align: center;
+    text-align: right;
     padding-top: 20px;
 }
 
@@ -239,5 +259,9 @@ justify-content: space-evenly;
 }
 
 .showxbutton {
+    cursor: pointer;
+}
+
+.delete-book {
     cursor: pointer;
 }
