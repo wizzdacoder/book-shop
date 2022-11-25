@@ -91,6 +91,7 @@ booktitles.forEach((books) => {
 
   showmorebtn.addEventListener("click", () => {
     const showmoreHeader = document.createElement("div");
+    showmorecontainer.innerHTML = "";
     showmoreHeader.className = "show-more-header";
     showmoreHeader.innerHTML = `
     <h2>${books.title}</h2>
@@ -102,6 +103,7 @@ booktitles.forEach((books) => {
     const showxbutton = document.createElement("h2");
     showxbutton.innerText = "x";
     showxbutton.className = "showxbutton";
+    showmorecontainer.style.display = "flex"
     showmoreHeader.append(showxbutton);
 
     showxbutton.addEventListener("click", () => {
@@ -128,10 +130,12 @@ booktitles.forEach((books) => {
 //shopping cart
 charticon.addEventListener("click", () => {
     const modalHeader = document.createElement("div");
+    modalcontainer.innerHTML = "";
     modalHeader.className = "modal-header";
     modalHeader.innerHTML = `
     <h1 class="modal-header-title">Shopping Cart</h1>
     `;
+    modalcontainer.style.display = "flex"
     modalcontainer.append(modalHeader)
 
     const modalxbutton = document.createElement("h2");
@@ -140,7 +144,7 @@ charticon.addEventListener("click", () => {
     modalHeader.append(modalxbutton)
 
     modalxbutton.addEventListener("click", () => {
-    modalcontainer.style.display = "none"
+    modalcontainer.style.display = "none";
     });
 
     shopcart.forEach((books) => {
