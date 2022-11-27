@@ -28,10 +28,15 @@ const ul = document.createElement("ul")
 header.append(ul)
 ul.className = "navlist"
 
-const chart = document.createElement("div")
-header.append(chart)
-chart.className = "chart-icon"
-chart.id = "charticon"
+const charticon = document.createElement("div")
+header.append(charticon)
+charticon.className = "chart-icon"
+charticon.id = "charticon"
+
+const counter = document.createElement("span")
+counter.id = "cartcounter"
+counter.className ="cart-counter"
+header.append(counter)
 
 const li1 = document.createElement("li")
 ul.append(li1)
@@ -63,7 +68,6 @@ modalcontainer.className = "modal-container";
 modalcontainer.id = "modalcontainer";
 layout.append(modalcontainer);
 
-const charticon = document.getElementById("charticon");
 const showmorecontainer = document.createElement("div");
 showmorecontainer.className = "show-more-container";
 showmorecontainer.id = "showmorecontainer";
@@ -71,7 +75,7 @@ layout.append(showmorecontainer)
 
 let shopcart = []
 
-booktitles.forEach((books) => {
+book.forEach((books) => {
   let content = document.createElement("div");
   content.classList = "book"
   content.innerHTML = `
@@ -105,8 +109,6 @@ booktitles.forEach((books) => {
     `;
     showmorecontainer.append(showmoreHeader);
 
-
-
     showxbutton.addEventListener("click", () => {
     showmorecontainer.style.display = "none";
     });
@@ -119,12 +121,23 @@ booktitles.forEach((books) => {
   content.append(addtobag)
 
   addtobag.addEventListener("click", () =>{
+    const repeat = shopcart.some((repeatBooks) => repeatBooks.title === books.title);
+    if (repeat){
+      shopcart.map((prod) => {
+        if (prod.title === books.title){
+          prod.quantity++
+        }
+      });
+    } else {
     shopcart.push({
-      img: books.imageLink,
+      imageLink: books.imageLink,
       title: books.title,
       author: books.author,
-      price: books.price
+      price: books.price,
+      quantity: books.quantity
     });
+  }
+  shopcartCounter();
   });
 });
 
@@ -156,8 +169,11 @@ const paintCart = () => {
       <h3>${books.title}</h3>
       <p>${books.author}</p>
       <p><strong>Price: $${books.price}</strong></p>
+      <p>Quantity: ${books.quantity}</p>
+      <p>Sub-Total: $${books.quantity * books.price}</price>
       `;
     modalcontainer.append(shopcartcontent)
+    console.log(shopcart.length)
 
 //remove book from cart
     let deletebook = document.createElement("span");
@@ -169,7 +185,7 @@ const paintCart = () => {
     });
 
 // total cart
-    const total = shopcart.reduce((acc, el) => acc + el.price, 0);
+    const total = shopcart.reduce((acc, el) => acc + el.price * el.quantity, 0);
 
     const totalBuying = document.createElement("div")
     totalBuying.className = "total-content"
@@ -180,14 +196,19 @@ const paintCart = () => {
 charticon.addEventListener("click", paintCart);
 
 const deleteProduct = () => {
-  const foundId = shopcart.find((element) => element.id);
+  const foundId = shopcart.find((element) => element.title);
 
-  shopcart = shopcart.filer((shopcartId) => {
+  shopcart = shopcart.filter((shopcartId) => {
     return shopcartId !== foundId;
   });
-
+  shopcartCounter();
   paintCart();
 };
+
+const shopcartCounter = () => {
+  counter.style.display = "block";
+  counter.innerText = shopcart.length;
+}
 
 });
 //summarize personal info

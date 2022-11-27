@@ -81,6 +81,18 @@ li:hover {
     margin-top: 2rem;
 }
 
+.cart-counter {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 4px;
+    top: 60px;
+    right: 90px;
+    position: absolute;
+    display: none;
+}
+
 .chart-icon:hover {
     cursor: pointer;
     opacity: 0.7;
