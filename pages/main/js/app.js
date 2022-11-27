@@ -29,6 +29,7 @@ header.append(ul)
 ul.className = "navlist"
 
 const charticon = document.createElement("div")
+charticon.innerText = "🛒"
 header.append(charticon)
 charticon.className = "chart-icon"
 charticon.id = "charticon"
@@ -147,7 +148,7 @@ const paintCart = () => {
     modalcontainer.innerHTML = "";
     modalHeader.className = "modal-header";
     modalHeader.innerHTML = `
-    <h1 class="modal-header-title">Shopping Cart</h1>
+    <h2 class="modal-header-title">Shopping Cart</h2>
     `;
     modalcontainer.style.display = "flex"
     modalcontainer.append(modalHeader)
@@ -164,15 +165,23 @@ const paintCart = () => {
     shopcart.forEach((books) => {
       let shopcartcontent = document.createElement("div");
       shopcartcontent.className = "modal-content";
-      shopcartcontent.innerHTML = `
+      let titlecart = document.createElement("div")
+      titlecart.className ="titlecart"
+      let detailscart = document.createElement("div")
+      detailscart.className="detailscart"
+      titlecart.innerHTML = `
       <img src="${books.imageLink}">
-      <h3>${books.title}</h3>
-      <p>${books.author}</p>
-      <p><strong>Price: $${books.price}</strong></p>
+      <h4 class="cart-title">${books.title}</h4>
+      <p>Author: ${books.author}</p>
+      `;
+      detailscart.innerHTML = `
+      <p>Price: $${books.price}</p>
       <p>Quantity: ${books.quantity}</p>
-      <p>Sub-Total: $${books.quantity * books.price}</price>
+      <p><strong>SUB-TOTAL: $${books.quantity * books.price}</strong></price>
       `;
     modalcontainer.append(shopcartcontent)
+    shopcartcontent.append(titlecart)
+    shopcartcontent.append(detailscart)
     console.log(shopcart.length)
 
 //remove book from cart
