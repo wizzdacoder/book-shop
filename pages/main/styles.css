@@ -12,6 +12,9 @@ a {
     text-decoration: none;
 }
 
+.navlist a{
+    color: #000;
+}
 
 li:hover {
     cursor: pointer;
@@ -31,7 +34,14 @@ li:hover {
 
 
 .logo-header a {
-    color: darkorange;
+    color:rgb(253, 174, 27);
+}
+.logo-header p {
+    color:darkgrey;
+    position: absolute;
+    margin-top: -1rem;
+    margin-left: 3.5rem;
+    font-size: small;
 }
 
 .wrapper {
@@ -59,7 +69,7 @@ li:hover {
     text-align: center;
     margin-top: 0.3rem;
     margin-left: 2rem;
-    color:darkorange;
+    color:darkolivegreen;
     text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
     1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
@@ -91,7 +101,6 @@ li:hover {
     cursor: pointer;
     opacity: 0.5;
 }
-
 
 .navbar {
     text-align: center;
@@ -215,7 +224,7 @@ justify-content: space-evenly;
 
 .modal-header {
     justify-content: space-evenly;
-    background-color: chocolate;
+    background-color:burlywood;
     color: black;
     width: 100%;
 }
@@ -248,6 +257,7 @@ justify-content: space-evenly;
 }
 
 .delete-book {
+    cursor: pointer;
     position: absolute;
     padding-left: 47rem;
 }
@@ -268,6 +278,14 @@ justify-content: space-evenly;
     text-align: center;
     border-style: double;
     padding-top: 20px;
+}
+.confirm-order {
+    text-decoration-style: none;
+    border-radius: 2%;
+    background-color: gold;
+    position: absolute;
+    margin-left: 13rem;
+    margin-bottom: 1rem;
 }
 
 /* show more container */
@@ -293,4 +311,51 @@ justify-content: space-evenly;
 
 .delete-book {
     cursor: pointer;
+}
+
+/* confirm order page */
+
+.order-title {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    margin-left: 28rem;
+    margin-top: 2rem;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.order-page {
+    color:#fff;
+    display: flex;
+    margin: 10vh 5vh 5vh 60vh;
+    padding-top: 2rem;
+    gap: 1rem;
+    height: 1000px;
+    width: 40%;
+    background-color: #121212;
+    border: double;
+    text-align: center;
+}
+input[type="checkbox"] + label {
+	user-select: none;
+}
+
+input[type="checkbox"]:disabled + label {
+	opacity: 0.4;
+}
+.personalinfo {
+    margin-top: 1rem;
+}
+
+.red {
+    color: red;
+}
+
+.gifttitle {
+    padding: 1rem;
+}
+
+.selectpayment {
+    padding: 1rem;
 }

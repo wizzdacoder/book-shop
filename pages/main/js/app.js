@@ -12,7 +12,7 @@ main.className = "main"
 const layout = document.createElement("div")
 main.append(layout)
 layout.className = "layout"
-layout.id ="lay-out"
+layout.id ="layout"
 
 // header
 const header = document.createElement("header")
@@ -22,8 +22,9 @@ header.className = "navbar"
 const logo = document.createElement("div")
 header.append(logo)
 logo.setAttribute("class", "logo-header")
-logo.innerHTML = "<a href='#' id='mylogo'><h1>The Query</h1></a>"
-
+logo.innerHTML = `<a href='../main/index.html' id='mylogo'><h1>The Query</h1></a>
+<p>Bookshop</p>
+`;
 const ul = document.createElement("ul")
 header.append(ul)
 ul.className = "navlist"
@@ -47,12 +48,12 @@ li1.innerHTML = "<a href='#' id='home'>Book Store</a>"
 const li2 = document.createElement("li")
 ul.append(li2)
 li2.className = "wishbtn"
-li2.innerHTML = 'Wishlist'
+li2.innerHTML = "<a href='#' id='wish'>Wishlist</a>"
 
 const li3 = document.createElement("li")
 ul.append(li3)
 li3.className = "my-collection"
-li3.innerHTML = 'My Collection'
+li3.innerHTML = "<a href='#' id='home'>My Collection</a>"
 
 // bookgrid
 
@@ -165,6 +166,9 @@ const paintCart = () => {
     shopcart.forEach((books) => {
       let shopcartcontent = document.createElement("div");
       shopcartcontent.className = "modal-content";
+      shopcartcontent.innerHTML = `
+      <span class="delete-book">❌</span>
+      `;
       let titlecart = document.createElement("div")
       titlecart.className ="titlecart"
       let detailscart = document.createElement("div")
@@ -182,15 +186,19 @@ const paintCart = () => {
     modalcontainer.append(shopcartcontent)
     shopcartcontent.append(titlecart)
     shopcartcontent.append(detailscart)
-    console.log(shopcart.length)
+
+    const deletebook = shopcartcontent.querySelector(".delete-book")
+    deletebook.addEventListener("click", () =>{
+    deleteProduct(books.title);
+    });
 
 //remove book from cart
-    let deletebook = document.createElement("span");
-    deletebook.innerText = "❌";
-    deletebook.className = "delete-book";
-    shopcartcontent.append(deletebook);
+    // let deletebook = document.createElement("span");
+    // deletebook.innerText = "❌";
+    // deletebook.className = "delete-book";
+    // shopcartcontent.append(deletebook);
 
-    deletebook.addEventListener("click", deleteProduct);
+    // deletebook.addEventListener("click", deleteProduct);
     });
 
 // total cart
@@ -200,15 +208,23 @@ const paintCart = () => {
     totalBuying.className = "total-content"
     totalBuying.innerHTML = `Total to Pay: $${total}`;
     modalcontainer.append(totalBuying);
+
+    const confirm = document.createElement("button")
+    confirm.className = "confirm-order"
+    confirm.innerHTML = "<a href='../shopping/confirm.html'>Confirm Order</a>"
+    totalBuying.append(confirm)
+
 };
 
 charticon.addEventListener("click", paintCart);
 
-const deleteProduct = () => {
-  const foundId = shopcart.find((element) => element.title);
+const deleteProduct = (books) => {
+  const foundTitle = shopcart.find((books) => books.title);
 
-  shopcart = shopcart.filter((shopcartId) => {
-    return shopcartId !== foundId;
+  console.log(foundTitle)
+
+  shopcart = shopcart.filter((shopcartTitle) => {
+  return shopcartTitle !== foundTitle;
   });
   shopcartCounter();
   paintCart();
